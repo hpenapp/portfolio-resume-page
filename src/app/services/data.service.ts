@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { Project } from '../models/project.model';
 import { Certification } from '../models/certification.model';
 import { Experience } from '../models/experience.model';
+import { Education } from '../models/education.model';
 
 export interface PersonalInfo {
   fullName: string;
@@ -177,6 +178,18 @@ export class DataService {
     }
   ];
 
+  private education: Education[] = [
+    {
+      id: '1',
+      institution: 'Universidad Autónoma de Nuevo León',
+      location: 'San Nicolás de los Garza, N.L.',
+      degree: 'Bachelor of Science in Computational Science',
+      period: 'August 2018 - December 2022',
+      gpa: '89/100',
+      modules: ['Backend Development', 'Introduction to Machine Learning', 'Introduction to Deep Learning', 'Databases']
+    }
+  ];
+
   private projects: Project[] = [
     {
       id: '1',
@@ -298,6 +311,34 @@ export class DataService {
       badgeUrl: 'https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/151920393',
       verificationUrl: 'https://www.credential.net/profile/hpenapp/wallet',
       type: 'Course'
+    },
+    // --- Credly Badges ---
+    {
+      id: '7',
+      name: 'Hands On Essentials - Data Sharing',
+      issuer: 'Snowflake',
+      date: 'March, 2023',
+      badgeUrl: 'https://images.credly.com/images/1392296a-cadf-4037-b7ac-f01fef0fe31c/Essentials-Data-Sharing_2x.png',
+      verificationUrl: 'https://www.credly.com/badges/8ad750da-c5c5-432a-a20f-dd02ec707980',
+      type: 'Badge'
+    },
+    {
+      id: '8',
+      name: 'Hands On Essentials - Data Applications',
+      issuer: 'Snowflake',
+      date: 'February, 2023',
+      badgeUrl: 'https://images.credly.com/images/932e3102-58f6-474a-952d-a144b74c98d2/Essentials-Data-Applications_2x.png',
+      verificationUrl: 'https://www.credly.com/badges/850d8a55-8dee-45df-83ac-97b8ecfcbcaa',
+      type: 'Badge'
+    },
+    {
+      id: '9',
+      name: 'Hands On Essentials - Data Warehouse',
+      issuer: 'Snowflake',
+      date: 'February, 2023',
+      badgeUrl: 'https://images.credly.com/images/97fcc871-a820-4143-adf2-62517026cb58/Essentials-Data-Warehouse_2x.png',
+      verificationUrl: 'https://www.credly.com/badges/e78ed58f-96db-4d04-95fd-f8ec2443e5ce',
+      type: 'Badge'
     }
   ];
 
@@ -317,5 +358,9 @@ export class DataService {
 
   getCertifications(): Observable<Certification[]> {
     return of(this.certifications);
+  }
+
+  getEducation(): Observable<Education[]> {
+    return of(this.education);
   }
 }
