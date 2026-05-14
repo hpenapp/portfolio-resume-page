@@ -4,6 +4,10 @@
 /out-tsc
 /bazel-out
 
+# Generated docs
+README_EDITORS.md
+DEPLOYMENT.md
+
 # Node
 /node_modules
 npm-debug.log
@@ -38,8 +42,3 @@ Thumbs.db
 
 # Angular cache
 .angular/cache
-
-#UserFiles
-
-./DEPLOYMENT.md
-./README_EDITORS.md

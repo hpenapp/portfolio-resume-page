@@ -35,7 +35,12 @@ import { Project } from '../../models/project.model';
                data-aos="zoom-in" [attr.data-aos-delay]="i * 100">
             
             <div class="h-48 bg-gray-800 relative overflow-hidden">
-              <div class="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-gray-500">
+              <!-- Image Display -->
+              <img *ngIf="project.imageUrl" [src]="project.imageUrl" [alt]="project.title" 
+                   class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div *ngIf="project.imageUrl" class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
+              <!-- Fallback Icon -->
+              <div *ngIf="!project.imageUrl" class="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-gray-500">
                 <svg class="w-16 h-16 opacity-50 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
               </div>
             </div>
@@ -79,7 +84,11 @@ import { Project } from '../../models/project.model';
           </button>
 
           <div class="h-48 md:h-64 bg-gray-800 relative flex-shrink-0">
-             <div class="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-gray-500">
+              <!-- Modal Image -->
+              <img *ngIf="selectedProject.imageUrl" [src]="selectedProject.imageUrl" [alt]="selectedProject.title" class="absolute inset-0 w-full h-full object-cover">
+              <div *ngIf="selectedProject.imageUrl" class="absolute inset-0 bg-gradient-to-t from-cardBg via-cardBg/70 to-transparent"></div>
+              <!-- Modal Fallback Icon -->
+              <div *ngIf="!selectedProject.imageUrl" class="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-gray-500">
                 <svg class="w-24 h-24 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
               </div>
           </div>
