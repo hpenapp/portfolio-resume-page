@@ -7,6 +7,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { ProjectsComponent } from './components/projects/projects.component';
 import { CertificationsComponent } from './components/certifications/certifications.component';
 import { ResumeComponent } from './components/resume/resume.component';
+import { EducationComponent } from './components/education/education.component';
 import * as AOS from 'aos';
 
 @Component({
@@ -20,16 +21,18 @@ import * as AOS from 'aos';
     ExperienceComponent,
     ProjectsComponent, 
     CertificationsComponent, 
-    ResumeComponent
+    ResumeComponent,
+    EducationComponent
   ],
   template: `
     <main class="min-h-screen">
       <app-hero></app-hero>
       <app-summary></app-summary>
       <app-tech-stack></app-tech-stack>
-      <app-experience></app-experience>
       <app-projects></app-projects>
+      <!-- <app-experience></app-experience> -->
       <app-resume></app-resume>
+      <app-education></app-education>
       <app-certifications></app-certifications>
       
       <footer class="py-8 text-center border-t border-gray-800 mt-20">

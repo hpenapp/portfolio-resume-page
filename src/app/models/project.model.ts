@@ -5,7 +5,7 @@ export interface Project {
   longDescription?: string;
   imageUrl?: string;
   technologies: string[];
-  category: 'Data Engineering' | 'Angular' | 'Automation' | 'All';
+  category: 'Data Engineering' | 'Factory' | 'Automation' | 'All';
   client?: string;
   link?: string;
   githubLink?: string;

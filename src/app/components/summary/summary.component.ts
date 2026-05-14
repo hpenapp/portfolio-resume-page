@@ -24,14 +24,15 @@ import { DataService, PersonalInfo } from '../../services/data.service';
           
           <!-- Mini Info Grid -->
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+
+          <div class="flex items-start">
+              <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               <div>
-                <p class="text-sm text-gray-500 font-semibold uppercase tracking-wider">Birthday</p>
-                <p class="text-white">{{ personalInfo.birthday }}</p>
+                <p class="text-sm text-gray-500 font-semibold uppercase tracking-wider">Location</p>
+                <p class="text-white">{{ personalInfo.location }}</p>
               </div>
             </div>
-            
+
             <div class="flex items-start">
               <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
               <div>
@@ -41,10 +42,10 @@ import { DataService, PersonalInfo } from '../../services/data.service';
             </div>
 
             <div class="flex items-start">
-              <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               <div>
-                <p class="text-sm text-gray-500 font-semibold uppercase tracking-wider">Location</p>
-                <p class="text-white">{{ personalInfo.location }}</p>
+                <p class="text-sm text-gray-500 font-semibold uppercase tracking-wider">Email</p>
+                <a [href]="'mailto:' + personalInfo.email" class="text-white hover:text-primary transition-colors">{{ personalInfo.email }}</a>
               </div>
             </div>
 
@@ -53,14 +54,6 @@ import { DataService, PersonalInfo } from '../../services/data.service';
               <div>
                 <p class="text-sm text-gray-500 font-semibold uppercase tracking-wider">Phone</p>
                 <p class="text-white">{{ personalInfo.phone }}</p>
-              </div>
-            </div>
-
-            <div class="flex items-start">
-              <svg class="w-6 h-6 text-primary mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-              <div>
-                <p class="text-sm text-gray-500 font-semibold uppercase tracking-wider">Email</p>
-                <a [href]="'mailto:' + personalInfo.email" class="text-white hover:text-primary transition-colors">{{ personalInfo.email }}</a>
               </div>
             </div>
           </div>
@@ -72,7 +65,7 @@ import { DataService, PersonalInfo } from '../../services/data.service';
           <div class="glass-card p-2 rounded-2xl w-full max-w-sm relative">
             <div class="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-2xl blur opacity-30 animate-pulse"></div>
             <div class="relative bg-gray-900 rounded-xl overflow-hidden aspect-[4/5] flex items-center justify-center">
-              <img src="/assets/profile.jpeg" alt="Humberto Gerardo Peña" class="w-full h-full object-cover">
+              <img src="/assets/profile.jpeg" alt="Humberto Gerardo Peña Páez" class="w-full h-full object-cover">
             </div>
           </div>
         </div>

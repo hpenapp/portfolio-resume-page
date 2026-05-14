@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { Project } from '../models/project.model';
 import { Certification } from '../models/certification.model';
 import { Experience } from '../models/experience.model';
+import { Education } from '../models/education.model';
 
 export interface PersonalInfo {
   fullName: string;
@@ -15,7 +16,6 @@ export interface PersonalInfo {
   github: string;
   summary: string;
   currentRole: string;
-  birthday: string;
   degree: string;
 }
 
@@ -32,10 +32,9 @@ export class DataService {
     email: 'hgerardop01@gmail.com',
     location: 'Monterrey, N.L. México',
     linkedin: 'https://linkedin.com/in/hpenap/',
-    github: 'https://github.com/hpenap',
+    github: 'https://github.com/hpenapp',
     summary: 'Lead AI Data Engineer with 3.5+ years in Azure, specializing in scalable GenAI/LLM pipelines. Trusted to direct a Data Engineering Factory and mentor teams to deliver high-quality technical blueprints using Medallion Architecture. Proven expertise in SAP integrations and advanced Databricks features like Lakeflow. Databricks Certified Associate (May 2026) focused on driving operational value through robust engineering.',
     currentRole: 'AI Data Engineer @ HEINEKEN | Lead Data Engineer @ D&C Solutions',
-    birthday: 'November 27, 2000',
     degree: 'B.S. in Computer Science'
   };
 
@@ -179,6 +178,18 @@ export class DataService {
     }
   ];
 
+  private education: Education[] = [
+    {
+      id: '1',
+      institution: 'Universidad Autónoma de Nuevo León',
+      location: 'San Nicolás de los Garza, N.L.',
+      degree: 'Bachelor of Science in Computational Science',
+      period: 'August 2018 - December 2022',
+      gpa: '89/100',
+      modules: ['Backend Development', 'Introduction to Machine Learning', 'Introduction to Deep Learning', 'Databases']
+    }
+  ];
+
   private projects: Project[] = [
     {
       id: '1',
@@ -189,7 +200,8 @@ export class DataService {
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
       link: '#',
-      githubLink: '#'
+      githubLink: '#',
+      imageUrl: 'assets/projects-img/ai-agents.png'
     },
     {
       id: '2',
@@ -200,7 +212,8 @@ export class DataService {
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
       link: '#',
-      githubLink: '#'
+      githubLink: '#',
+      imageUrl: 'assets/projects-img/etl-llm.png'
     },
     {
       id: '3',
@@ -211,7 +224,8 @@ export class DataService {
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
       link: '#',
-      githubLink: '#'
+      githubLink: '#',
+      imageUrl: 'assets/projects-img/ai-rating-agent.png'
     },
     {
       id: '4',
@@ -222,7 +236,8 @@ export class DataService {
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
       link: '#',
-      githubLink: '#'
+      githubLink: '#',
+      imageUrl: './assets/projects-img/promotion-recommendation.png'
     },
     {
       id: '5',
@@ -230,10 +245,11 @@ export class DataService {
       description: 'Technical coordination of an internal Data Engineering Factory, defining ETL & Medallion Architecture standards and guiding SAP-to-cloud data ingestion pipelines.',
       longDescription: 'Appointed as Lead to coordinate the internal Data Engineering Factory at D&C Solutions. Responsibilities include defining and guaranteeing compliance with ETL and Medallion Architecture standards, overseeing the ingestion of complex datasets from SAP via Azure Blob Storage, providing architectural guidance and technical mentorship to junior developers, and acting as the primary guardian of data integrity through rigorous code reviews and resolution of complex technical roadblocks.',
       technologies: ['Technical Leadership', 'Medallion Architecture', 'SAP Integration', 'Azure Blob Storage', 'ETL Standards', 'Azure Databricks', 'PySpark'],
-      category: 'Data Engineering',
+      category: 'Factory',
       client: 'D&C Solutions S.C.',
       link: '#',
-      githubLink: '#'
+      githubLink: '#',
+      imageUrl: 'assets/projects-img/data-engineer-factory.png'
     }
   ];
 
@@ -295,6 +311,34 @@ export class DataService {
       badgeUrl: 'https://api.accredible.com/v1/frontend/credential_website_embed_image/badge/151920393',
       verificationUrl: 'https://www.credential.net/profile/hpenapp/wallet',
       type: 'Course'
+    },
+    // --- Credly Badges ---
+    {
+      id: '7',
+      name: 'Hands On Essentials - Data Sharing',
+      issuer: 'Snowflake',
+      date: 'March, 2023',
+      badgeUrl: 'https://images.credly.com/images/1392296a-cadf-4037-b7ac-f01fef0fe31c/Essentials-Data-Sharing_2x.png',
+      verificationUrl: 'https://www.credly.com/badges/8ad750da-c5c5-432a-a20f-dd02ec707980',
+      type: 'Badge'
+    },
+    {
+      id: '8',
+      name: 'Hands On Essentials - Data Applications',
+      issuer: 'Snowflake',
+      date: 'February, 2023',
+      badgeUrl: 'https://images.credly.com/images/932e3102-58f6-474a-952d-a144b74c98d2/Essentials-Data-Applications_2x.png',
+      verificationUrl: 'https://www.credly.com/badges/850d8a55-8dee-45df-83ac-97b8ecfcbcaa',
+      type: 'Badge'
+    },
+    {
+      id: '9',
+      name: 'Hands On Essentials - Data Warehouse',
+      issuer: 'Snowflake',
+      date: 'February, 2023',
+      badgeUrl: 'https://images.credly.com/images/97fcc871-a820-4143-adf2-62517026cb58/Essentials-Data-Warehouse_2x.png',
+      verificationUrl: 'https://www.credly.com/badges/e78ed58f-96db-4d04-95fd-f8ec2443e5ce',
+      type: 'Badge'
     }
   ];
 
@@ -314,5 +358,9 @@ export class DataService {
 
   getCertifications(): Observable<Certification[]> {
     return of(this.certifications);
+  }
+
+  getEducation(): Observable<Education[]> {
+    return of(this.education);
   }
 }
