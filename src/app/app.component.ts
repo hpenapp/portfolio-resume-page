@@ -27,8 +27,8 @@ import * as AOS from 'aos';
       <app-hero></app-hero>
       <app-summary></app-summary>
       <app-tech-stack></app-tech-stack>
-      <app-experience></app-experience>
       <app-projects></app-projects>
+      <!-- <app-experience></app-experience> -->
       <app-resume></app-resume>
       <app-certifications></app-certifications>
       

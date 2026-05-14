@@ -15,7 +15,6 @@ export interface PersonalInfo {
   github: string;
   summary: string;
   currentRole: string;
-  birthday: string;
   degree: string;
 }
 
@@ -32,10 +31,9 @@ export class DataService {
     email: 'hgerardop01@gmail.com',
     location: 'Monterrey, N.L. México',
     linkedin: 'https://linkedin.com/in/hpenap/',
-    github: 'https://github.com/hpenap',
+    github: 'https://github.com/hpenapp',
     summary: 'Lead AI Data Engineer with 3.5+ years in Azure, specializing in scalable GenAI/LLM pipelines. Trusted to direct a Data Engineering Factory and mentor teams to deliver high-quality technical blueprints using Medallion Architecture. Proven expertise in SAP integrations and advanced Databricks features like Lakeflow. Databricks Certified Associate (May 2026) focused on driving operational value through robust engineering.',
     currentRole: 'AI Data Engineer @ HEINEKEN | Lead Data Engineer @ D&C Solutions',
-    birthday: 'November 27, 2000',
     degree: 'B.S. in Computer Science'
   };
 
@@ -189,7 +187,8 @@ export class DataService {
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
       link: '#',
-      githubLink: '#'
+      githubLink: '#',
+      imageUrl: 'assets/projects-img/ai-agents.png'
     },
     {
       id: '2',
@@ -200,7 +199,8 @@ export class DataService {
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
       link: '#',
-      githubLink: '#'
+      githubLink: '#',
+      imageUrl: 'assets/projects-img/etl-llm.png'
     },
     {
       id: '3',
@@ -211,7 +211,8 @@ export class DataService {
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
       link: '#',
-      githubLink: '#'
+      githubLink: '#',
+      imageUrl: 'assets/projects-img/ai-rating-agent.png'
     },
     {
       id: '4',
@@ -222,7 +223,8 @@ export class DataService {
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
       link: '#',
-      githubLink: '#'
+      githubLink: '#',
+      imageUrl: './assets/projects-img/promotion-recommendation.png'
     },
     {
       id: '5',
@@ -230,10 +232,11 @@ export class DataService {
       description: 'Technical coordination of an internal Data Engineering Factory, defining ETL & Medallion Architecture standards and guiding SAP-to-cloud data ingestion pipelines.',
       longDescription: 'Appointed as Lead to coordinate the internal Data Engineering Factory at D&C Solutions. Responsibilities include defining and guaranteeing compliance with ETL and Medallion Architecture standards, overseeing the ingestion of complex datasets from SAP via Azure Blob Storage, providing architectural guidance and technical mentorship to junior developers, and acting as the primary guardian of data integrity through rigorous code reviews and resolution of complex technical roadblocks.',
       technologies: ['Technical Leadership', 'Medallion Architecture', 'SAP Integration', 'Azure Blob Storage', 'ETL Standards', 'Azure Databricks', 'PySpark'],
-      category: 'Data Engineering',
+      category: 'Factory',
       client: 'D&C Solutions S.C.',
       link: '#',
-      githubLink: '#'
+      githubLink: '#',
+      imageUrl: 'assets/projects-img/data-engineer-factory.png'
     }
   ];
 
