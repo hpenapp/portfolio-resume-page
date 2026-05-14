@@ -40,6 +40,5 @@ Thumbs.db
 .angular/cache
 
 #UserFiles
-
-./DEPLOYMENT.md
-./README_EDITORS.md
+DEPLOYMENT.md
+README_EDITORS.md
