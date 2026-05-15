@@ -34,7 +34,7 @@ import { Experience } from '../../models/experience.model';
             <span class="text-primary font-mono text-sm mt-1 md:mt-0">{{ exp.period }}</span>
           </div>
           
-          <p class="text-lg text-gray-400 font-medium">{{ exp.company }}</p>
+          <p class="text-lg text-textSecondary font-medium">{{ exp.company }}</p>
           
         </div>
       </div>

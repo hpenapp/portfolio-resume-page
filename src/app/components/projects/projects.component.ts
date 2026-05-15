@@ -28,11 +28,11 @@ import { Project } from '../../models/project.model';
         </div>
 
         <!-- Projects Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="flex flex-wrap justify-center gap-8 after:content-[''] after:flex-auto after:max-w-sm">
           <div *ngFor="let project of filteredProjects; let i = index" 
-               class="glass-card group overflow-hidden flex flex-col cursor-pointer"
-               (click)="openModal(project)"
-               data-aos="zoom-in" [attr.data-aos-delay]="i * 100">
+               class="glass-card group overflow-hidden flex flex-col cursor-pointer w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm animate-fade-in-up"
+               [style.animation-delay.ms]="i * 50"
+               (click)="openModal(project)">
             
             <div class="h-48 bg-gray-800 relative overflow-hidden">
               <!-- Image Display -->
@@ -40,7 +40,7 @@ import { Project } from '../../models/project.model';
                    class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
               <div *ngIf="project.imageUrl" class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
               <!-- Fallback Icon -->
-              <div *ngIf="!project.imageUrl" class="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-gray-500">
+              <div *ngIf="!project.imageUrl" class="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-textSecondary">
                 <svg class="w-16 h-16 opacity-50 group-hover:scale-110 transition-transform duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
               </div>
             </div>
@@ -48,17 +48,17 @@ import { Project } from '../../models/project.model';
             <div class="p-6 flex-grow flex flex-col">
               <span class="text-xs font-semibold text-primary mb-1 uppercase tracking-wider">{{ project.category }}</span>
               <h3 class="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">{{ project.title }}</h3>
-              <p *ngIf="project.client" class="text-xs text-gray-500 mb-3 flex items-center">
+              <p *ngIf="project.client" class="text-xs text-textSecondary mb-3 flex items-center">
                 <svg class="w-3 h-3 mr-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                 {{ project.client }}
               </p>
-              <p class="text-gray-400 text-sm mb-6 flex-grow">{{ project.description }}</p>
+              <p class="text-textSecondary text-sm mb-6 flex-grow">{{ project.description }}</p>
               
               <div class="flex flex-wrap gap-2 mb-4">
                 <span *ngFor="let tech of project.technologies | slice:0:3" class="text-xs bg-gray-800 text-gray-300 px-3 py-1 rounded-full">
                   {{ tech }}
                 </span>
-                <span *ngIf="project.technologies.length > 3" class="text-xs text-gray-500 px-1 py-1">
+                <span *ngIf="project.technologies.length > 3" class="text-xs text-textSecondary px-1 py-1">
                   +{{ project.technologies.length - 3 }}
                 </span>
               </div>
@@ -88,7 +88,7 @@ import { Project } from '../../models/project.model';
               <img *ngIf="selectedProject.imageUrl" [src]="selectedProject.imageUrl" [alt]="selectedProject.title" class="absolute inset-0 w-full h-full object-cover">
               <div *ngIf="selectedProject.imageUrl" class="absolute inset-0 bg-gradient-to-t from-cardBg via-cardBg/70 to-transparent"></div>
               <!-- Modal Fallback Icon -->
-              <div *ngIf="!selectedProject.imageUrl" class="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-gray-500">
+              <div *ngIf="!selectedProject.imageUrl" class="absolute inset-0 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-textSecondary">
                 <svg class="w-24 h-24 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
               </div>
           </div>
@@ -98,7 +98,7 @@ import { Project } from '../../models/project.model';
               <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-xs font-semibold uppercase tracking-wider">
                 {{ selectedProject.category }}
               </span>
-              <span *ngIf="selectedProject.client" class="flex items-center text-xs text-gray-400 border border-gray-700 rounded-full px-3 py-1">
+              <span *ngIf="selectedProject.client" class="flex items-center text-xs text-textSecondary border border-gray-700 rounded-full px-3 py-1">
                 <svg class="w-3 h-3 mr-1.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-2 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                 {{ selectedProject.client }}
               </span>
@@ -154,12 +154,12 @@ export class ProjectsComponent implements OnInit {
   }
 
   setFilter(filter: string): void {
+    if (this.activeFilter === filter) return;
     this.activeFilter = filter;
-    if (filter === 'All') {
-      this.filteredProjects = this.projects;
-    } else {
-      this.filteredProjects = this.projects.filter(p => p.category === filter);
-    }
+    
+    let items = filter === 'All' ? this.projects : this.projects.filter(p => p.category === filter);
+    // Create new references to force Angular to re-render and trigger CSS animations seamlessly
+    this.filteredProjects = items.map(item => ({...item}));
   }
 
   openModal(project: Project): void {

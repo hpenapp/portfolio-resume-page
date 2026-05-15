@@ -27,9 +27,9 @@ import { Certification } from '../../models/certification.model';
           </button>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
           <div *ngFor="let cert of filteredCertifications; let i = index" 
-               class="glass-card p-6 flex flex-col items-center text-center group"
+               class="glass-card p-6 flex flex-col items-center text-center group w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] max-w-sm animate-fade-in-up"
                [ngClass]="{'border-primary shadow-[0_0_15px_rgba(34,211,238,0.2)]': cert.highlight}"
                data-aos="fade-up" [attr.data-aos-delay]="i * 100">
             
@@ -37,13 +37,13 @@ import { Certification } from '../../models/certification.model';
               <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:bg-primary/40 transition-colors" *ngIf="cert.highlight"></div>
               <img *ngIf="cert.badgeUrl" [src]="cert.badgeUrl" [alt]="cert.name" class="w-full h-full object-contain relative z-10 drop-shadow-xl group-hover:scale-105 transition-transform duration-300">
               <div *ngIf="!cert.badgeUrl" class="w-full h-full bg-gray-800 rounded-full flex items-center justify-center border-4 border-gray-700">
-                <svg class="w-12 h-12 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <svg class="w-12 h-12 text-textSecondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               </div>
             </div>
             
             <span class="text-xs font-bold text-primary mb-2 uppercase tracking-widest">{{ cert.type }}</span>
             <h3 class="text-lg font-bold text-white mb-2 leading-snug">{{ cert.name }}</h3>
-            <p class="text-gray-400 font-medium mb-4">{{ cert.issuer }} • {{ cert.date }}</p>
+            <p class="text-textSecondary font-medium mb-4">{{ cert.issuer }} • {{ cert.date }}</p>
             
             <a *ngIf="cert.verificationUrl && cert.verificationUrl !== '#'" [href]="cert.verificationUrl" target="_blank" class="mt-auto px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full text-sm font-semibold transition-colors flex items-center">
               Verify
@@ -72,11 +72,11 @@ export class CertificationsComponent implements OnInit {
   }
 
   setTab(tab: string): void {
+    if (this.activeTab === tab) return;
     this.activeTab = tab;
-    if (tab === 'All') {
-      this.filteredCertifications = this.certifications;
-    } else {
-      this.filteredCertifications = this.certifications.filter(c => c.type === tab);
-    }
+    
+    let items = tab === 'All' ? this.certifications : this.certifications.filter(c => c.type === tab);
+    // Create new references to force Angular to re-render and trigger CSS animations seamlessly
+    this.filteredCertifications = items.map(item => ({...item}));
   }
 }
