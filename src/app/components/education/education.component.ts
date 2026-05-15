@@ -15,7 +15,7 @@ import { Education } from '../../models/education.model';
           <h2 class="text-3xl md:text-5xl font-bold mb-4">
             Education <span class="text-primary">Background</span>
           </h2>
-          <p class="text-gray-400 font-mono text-sm tracking-widest uppercase">
+          <p class="text-textSecondary font-mono text-sm tracking-widest uppercase">
             Academic History
           </p>
         </div>
@@ -51,7 +51,7 @@ import { Education } from '../../models/education.model';
                 <p class="text-xl text-gray-300 font-bold mb-4 flex flex-wrap items-center gap-2 sm:gap-3">
                   {{ ed.institution }}
                   <span class="text-gray-700 hidden sm:inline">|</span>
-                  <span class="text-gray-500 text-sm font-normal uppercase tracking-widest">{{ ed.location }}</span>
+                  <span class="text-textSecondary text-sm font-normal uppercase tracking-widest">{{ ed.location }}</span>
                   <span class="text-gray-700 hidden sm:inline">|</span>
                   <span class="text-primary text-sm font-bold uppercase tracking-widest">GPA: {{ ed.gpa }}</span>
                 </p>
@@ -61,7 +61,7 @@ import { Education } from '../../models/education.model';
                     <span class="text-primary flex-shrink-0">
                       <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </span>
-                    <p class="text-xs md:text-sm text-gray-400 font-medium">
+                    <p class="text-xs md:text-sm text-textSecondary font-medium">
                       <span class="text-gray-300 font-bold mr-1">Modules:</span> 
                       {{ ed.modules.join(' • ') }}
                     </p>
