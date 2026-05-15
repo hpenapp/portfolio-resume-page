@@ -6,8 +6,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <nav [ngClass]="isScrolled ? 'bg-background/95 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'"
-         class="fixed w-full z-50 top-0 transition-all duration-500">
+    <nav [ngClass]="isScrolled ? 'translate-y-0' : '-translate-y-full'"
+         class="fixed w-full z-50 top-0 transition-all duration-500 bg-background/95 backdrop-blur-md shadow-md py-4">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->

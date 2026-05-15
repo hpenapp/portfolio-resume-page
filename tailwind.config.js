@@ -7,10 +7,13 @@ module.exports = {
     extend: {
       colors: {
         background: '#0f172a',
+        cardBg: '#1e293b',
+        accent: '#8b5cf6',
+        accentLight: '#a78bfa',
+        highlight: '#38bdf8',
+        textMain: '#f8fafc',
         primary: '#22d3ee',
-        textMain: '#e2e8f0',
-        textSecondary: 'rgba(255, 255, 255, 0.7)',
-        cardBg: '#1e293b'
+        textSecondary: 'rgba(255, 255, 255, 0.7)'
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
