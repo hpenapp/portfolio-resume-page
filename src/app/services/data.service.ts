@@ -47,10 +47,10 @@ export class DataService {
       period: '09/2025 - Present',
       description: 'Appointed as Lead to coordinate the internal Data Engineering Factory, providing architectural guidance and technical mentorship to junior developers to ensure the delivery of scalable, high-quality solutions.',
       achievements: [
-        'Technical Leadership & Trust: Appointed as Lead to coordinate the internal Data Engineering Factory, providing architectural guidance and technical mentorship to junior developers to ensure the delivery of scalable, high-quality solutions.',
-        'Architecture & Standards: Define and guarantee compliance with the consultancy’s ETL and Medallion Architecture standards, ensuring all data pipelines are built for high performance and long-term maintainability.',
-        'High-Impact Data Integration: Oversee the ingestion of complex datasets from SAP via Azure Blob Storage, guiding the team through the complete transformation process and the application of advanced business rules.',
-        'Technical Governance: Act as the primary guardian of data integrity, resolving complex technical roadblocks and performing rigorous code reviews to ensure all deliverables meet enterprise-grade quality standards.'
+        'Technical Leadership & Trust: Appointed as Lead to coordinate the internal <strong>Data Engineering Factory</strong>, providing architectural guidance and technical mentorship to junior developers to ensure the delivery of scalable, <strong>high-quality solutions</strong>.',
+        'Architecture & Standards: Define and guarantee compliance with the consultancy’s <strong>ETL and Medallion Architecture</strong> standards, ensuring all data pipelines are built for high performance and long-term maintainability.',
+        'High-Impact Data Integration: Oversee the ingestion of complex datasets from <strong>SAP via Azure Blob Storage</strong>, guiding the team through the complete transformation process and the application of advanced business rules.',
+        'Technical Governance: Act as the primary guardian of data integrity, resolving complex technical roadblocks and performing rigorous <strong>code reviews</strong> to ensure all deliverables meet enterprise-grade quality standards.'
       ],
       skills: ['Technical Leadership', 'Architectural Design', 'Code Quality', 'SAP Integration'],
       translations: {
@@ -58,10 +58,10 @@ export class DataService {
           role: 'Líder Técnico y Coordinador de Fábrica de Ingeniería de Datos',
           description: 'Designado como Líder para coordinar la Fábrica de Ingeniería de Datos interna, brindando orientación arquitectónica y mentoría técnica a desarrolladores junior para asegurar la entrega de soluciones escalables y de alta calidad.',
           achievements: [
-            'Liderazgo Técnico y Confianza: Designado como Líder para coordinar la Fábrica de Ingeniería de Datos interna, brindando orientación arquitectónica y mentoría técnica a desarrolladores junior para asegurar la entrega de soluciones escalables y de alta calidad.',
-            'Arquitectura y Estándares: Definir y garantizar el cumplimiento de los estándares de ETL y Arquitectura Medallón de la consultora, asegurando que todos los pipelines de datos estén construidos para un alto rendimiento y mantenibilidad a largo plazo.',
-            'Integración de Datos de Alto Impacto: Supervisar la ingesta de conjuntos de datos complejos desde SAP a través de Azure Blob Storage, guiando al equipo en el proceso completo de transformación y la aplicación de reglas de negocio avanzadas.',
-            'Gobernanza Técnica: Actuar como el principal guardián de la integridad de los datos, resolviendo obstáculos técnicos complejos y realizando revisiones de código rigurosas para asegurar que todos los entregables cumplan con estándares de calidad de nivel empresarial.'
+            'Liderazgo Técnico y Confianza: Designado como Líder para coordinar la <strong>Fábrica de Ingeniería de Datos</strong> interna, brindando orientación arquitectónica y mentoría técnica a desarrolladores junior para asegurar la entrega de soluciones escalables y de alta calidad.',
+            'Arquitectura y Estándares: Definir y garantizar el cumplimiento de los estándares de <strong>ETL y Arquitectura Medallón</strong> de la consultora, asegurando que todos los pipelines de datos estén construidos para un alto rendimiento y mantenibilidad a largo plazo.',
+            'Integración de Datos de Alto Impacto: Supervisar la ingesta de conjuntos de datos complejos desde <strong>SAP a través de Azure Blob Storage</strong>, guiando al equipo en el proceso completo de transformación y la aplicación de reglas de negocio avanzadas.',
+            'Gobernanza Técnica: Actuar como el principal guardián de la integridad de los datos, resolviendo obstáculos técnicos complejos y realizando <strong>revisiones de código</strong> rigurosas para asegurar que todos los entregables cumplan con estándares de calidad de nivel empresarial.'
           ]
         }
       }
@@ -74,11 +74,11 @@ export class DataService {
       period: '02/2025 - Present',
       description: 'Architecting end-to-end lifecycle of AI Agents and scalable ETL pipelines for LLM consumption.',
       achievements: [
-        'Architected the end-to-end lifecycle of AI Agents for telephone platforms using Azure Functions and C#.',
-        'Architected and deployed scalable ETL pipelines following Medallion Methodology in Azure Databricks and PySpark for LLM consumption.',
-        'Engineered an automated "Call Rating" system with Generative AI, utilizing APIs and SQL in a DevOps environment.',
-        'Developed and automated data ingestion workflows in Azure Data Factory for strategic company products.',
-        'Implemented a personalized "Promotion Recommendation" engine leveraging predictive analysis to improve delivery precision.'
+        'Architected the end-to-end lifecycle of <strong>AI Agents</strong> for telephone platforms using <strong>Azure Functions and C#</strong>.',
+        'Architected and deployed scalable <strong>ETL pipelines</strong> following <strong>Medallion Methodology</strong> in <strong>Azure Databricks and PySpark</strong> for <strong>LLM consumption</strong>.',
+        'Engineered an automated "Call Rating" system with <strong>Generative AI</strong>, utilizing APIs and SQL in a DevOps environment.',
+        'Developed and automated data ingestion workflows in <strong>Azure Data Factory</strong> for strategic company products.',
+        'Implemented a personalized "Promotion Recommendation" engine leveraging <strong>predictive analysis</strong> to improve delivery precision.'
       ],
       skills: ['Azure Functions', 'C#', 'LLM', 'Azure Databricks', 'PySpark', 'Generative AI'],
       translations: {
@@ -86,11 +86,11 @@ export class DataService {
           role: 'Ingeniero de Datos de IA',
           description: 'Arquitectura del ciclo de vida de punta a punta de Agentes de IA y pipelines ETL escalables para consumo de LLMs.',
           achievements: [
-            'Arquitectura del ciclo de vida de Agentes de IA para plataformas telefónicas usando Azure Functions y C#.',
-            'Despliegue de pipelines ETL escalables siguiendo la Metodología Medallion en Azure Databricks y PySpark.',
-            'Ingeniería de un sistema automatizado de "Call Rating" con IA Generativa.',
-            'Desarrollo de flujos automatizados de ingesta de datos en Azure Data Factory.',
-            'Implementación de un motor de "Recomendación de Promociones" personalizado.'
+            'Arquitectura del ciclo de vida de <strong>Agentes de IA</strong> para plataformas telefónicas usando <strong>Azure Functions y C#</strong>.',
+            'Despliegue de <strong>pipelines ETL escalables</strong> siguiendo la <strong>Metodología Medallion</strong> en <strong>Azure Databricks y PySpark</strong>.',
+            'Ingeniería de un sistema automatizado de "Call Rating" con <strong>IA Generativa</strong>.',
+            'Desarrollo de flujos automatizados de ingesta de datos en <strong>Azure Data Factory</strong>.',
+            'Implementación de un motor de "Recomendación de Promociones" personalizado con <strong>análisis predictivo</strong>.'
           ]
         }
       }
@@ -103,11 +103,11 @@ export class DataService {
       period: '05/2024 - 02/2025',
       description: 'Orchestrated high-volume real-time ETL processes and developed advanced Power BI dashboards.',
       achievements: [
-        'Orchestrated high-volume, real-time ETL processes using Azure Databricks and PySpark (Medallion Methodology).',
-        'Designed and automated end-to-end data pipelines in Azure Data Factory with storage in Azure Blob Storage.',
-        'Developed advanced Power BI dashboards with complex DAX measures, resulting in significant operational savings.',
-        'Optimized real-time processing by automating streaming workflows, facilitating a 100% success rate in production transitions.',
-        'Enhanced analytical capacity by integrating multi-sector data into the Data Lake while ensuring compliance.'
+        'Orchestrated high-volume, real-time <strong>ETL processes</strong> using <strong>Azure Databricks and PySpark</strong> (Medallion Methodology).',
+        'Designed and automated end-to-end data pipelines in <strong>Azure Data Factory</strong> with storage in <strong>Azure Blob Storage</strong>.',
+        'Developed advanced <strong>Power BI dashboards</strong> with complex DAX measures, resulting in <strong>significant operational savings</strong>.',
+        'Optimized real-time processing by automating streaming workflows, facilitating a <strong>100% success rate</strong> in production transitions.',
+        'Enhanced analytical capacity by integrating multi-sector data into the <strong>Data Lake</strong> while ensuring compliance.'
       ],
       skills: ['Azure Data Factory', 'Databricks', 'PySpark', 'Power BI', 'Azure Blob Storage'],
       translations: {
@@ -194,8 +194,8 @@ export class DataService {
     {
       id: '1',
       title: 'AI Agents Lifecycle',
-      description: 'Arquitectura del ciclo de vida de agentes de IA para plataformas telefónicas.',
-      longDescription: 'Diseño y desarrollo del ciclo de vida completo de agentes de IA para plataformas telefónicas utilizando Azure Functions y C#. Creación de APIs escalables para inteligencia conversacional en tiempo real.',
+      description: 'Architecture of the lifecycle for AI Agents in telephony platforms.',
+      longDescription: 'Design and development of the complete lifecycle for AI agents on telephony platforms using Azure Functions and C#. Creation of scalable APIs for real-time conversational intelligence.',
       technologies: ['Azure Functions', 'C#', 'AI Agents', 'Conversational Intelligence'],
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
@@ -206,8 +206,8 @@ export class DataService {
     {
       id: '2',
       title: 'Scalable ETL for LLM',
-      description: 'Pipelines ETL escalables siguiendo la metodología Medallion para consumo de LLMs.',
-      longDescription: 'Arquitectura y despliegue de pipelines ETL escalables siguiendo la metodología Medallion (Bronze, Silver, Gold) en Azure Databricks y PySpark para el procesamiento de altos volúmenes de datos destinados al consumo de modelos de lenguaje de gran escala (LLM).',
+      description: 'Scalable ETL pipelines following the Medallion methodology for LLM consumption.',
+      longDescription: 'Architecture and deployment of scalable ETL pipelines following the Medallion methodology (Bronze, Silver, Gold) in Azure Databricks and PySpark for processing high volumes of data intended for Large Language Model (LLM) consumption.',
       technologies: ['Azure Databricks', 'PySpark', 'LLM', 'Medallion Methodology'],
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
@@ -218,8 +218,8 @@ export class DataService {
     {
       id: '3',
       title: 'Automated Call Rating with GenAI',
-      description: 'Sistema de evaluación de llamadas automatizado con IA Generativa.',
-      longDescription: 'Desarrollo de un sistema de "Call Rating" automatizado con IA Generativa, utilizando APIs y SQL para extraer y evaluar datos de conversaciones dentro de un entorno DevOps controlado por código.',
+      description: 'Automated call rating system using Generative AI.',
+      longDescription: 'Development of an automated "Call Rating" system with Generative AI, utilizing APIs and SQL to extract and evaluate conversation data within a code-controlled DevOps environment.',
       technologies: ['Generative AI', 'APIs', 'SQL', 'DevOps'],
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
@@ -230,8 +230,8 @@ export class DataService {
     {
       id: '4',
       title: 'Promotion Recommendation Engine',
-      description: 'Motor de recomendación de promociones personalizado con IA Generativa.',
-      longDescription: 'Implementación de un motor de "Promotion Recommendation" personalizado utilizando IA Generativa, aprovechando el análisis predictivo para mejorar la precisión en la entrega y generar ahorros operativos significativos.',
+      description: 'Custom promotion recommendation engine built with Generative AI.',
+      longDescription: 'Implementation of a personalized "Promotion Recommendation" engine utilizing Generative AI, leveraging predictive analysis to improve delivery precision and generate significant operational savings.',
       technologies: ['Generative AI', 'Predictive Analysis', 'Python'],
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
