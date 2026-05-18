@@ -27,6 +27,8 @@ yarn-error.log
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+.gemini
+.vscode
 
 # Misc
 /.sass-cache
