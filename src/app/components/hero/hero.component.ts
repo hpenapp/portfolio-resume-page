@@ -7,20 +7,20 @@ import { DataService, PersonalInfo } from '../../services/data.service';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20 overflow-hidden">
+    <section class="relative min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20 overflow-hidden isolate">
       <!-- Neural Network Background -->
       <canvas #neuralCanvas class="absolute inset-0 w-full h-full -z-10 bg-[#0f172a]"></canvas>
       <div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background -z-5"></div>
       
       <div class="relative z-10">
-        <h1 class="text-7xl md:text-[10rem] font-bold mb-12 tracking-tighter text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.1)] animate-fade-in-up">
+        <h1 class="text-6xl md:text-8xl font-bold mb-12 tracking-tighter text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.1)] animate-fade-in-up">
           {{ personalInfo?.fullName }}
         </h1>
 
         <!-- Simplified Typewriter Display -->
         <div class="max-w-4xl mx-auto mb-20 animate-fade-in-up" style="animation-delay: 100ms">
           <div class="flex items-center justify-center min-h-[4rem]">
-            <span class="text-3xl md:text-5xl text-primary font-mono font-black tracking-tight drop-shadow-[0_0_15px_rgba(34,211,238,0.4)]">
+            <span class="text-2xl md:text-4xl text-primary font-mono font-black tracking-tight drop-shadow-[0_0_15px_rgba(34,211,238,0.4)]">
               {{ displayedText }}
             </span>
             <span class="ml-4 w-1.5 h-10 md:h-14 bg-primary animate-pulse shadow-[0_0_15px_rgba(34,211,238,0.8)] rounded-full"></span>
@@ -53,20 +53,30 @@ import { DataService, PersonalInfo } from '../../services/data.service';
     `,
     styles: [`
     .clean-social-link {
-      @apply text-primary/40 transition-all duration-500 hover:text-primary hover:-translate-y-2 hover:drop-shadow-[0_0_20px_rgba(34,211,238,0.6)] active:scale-90;
+      @apply text-primary/40 transition-all duration-300 hover:text-primary hover:-translate-y-2 active:scale-90 active:filter active:blur-[1px];
+      transition-timing-function: var(--ease-out);
+    }
+    .clean-social-link svg {
+      @apply drop-shadow-[0_0_0_rgba(34,211,238,0)];
+      transition: filter 300ms var(--ease-out);
+    }
+    .clean-social-link:hover svg {
+      @apply drop-shadow-[0_0_20px_rgba(34,211,238,0.6)];
     }
     .tech-social-link {
-      @apply flex flex-col items-center gap-3 transition-all duration-500;
+      @apply flex flex-col items-center gap-3 transition-all duration-300;
+      transition-timing-function: var(--ease-out);
     }
     .tech-icon-wrapper {
-      @apply w-16 h-16 bg-[#0a0a0a] rounded-2xl border border-white/5 flex items-center justify-center text-primary/50 transition-all duration-500 group-hover:text-primary group-hover:border-primary/40 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.2)] active:scale-90 relative overflow-hidden;
+      @apply w-16 h-16 bg-[#0a0a0a] rounded-2xl border border-white/5 flex items-center justify-center text-primary/50 transition-all duration-300 group-hover:text-primary group-hover:border-primary/40 group-hover:-translate-y-2 group-hover:shadow-[0_0_30px_rgba(34,211,238,0.2)] active:scale-95 relative overflow-hidden;
+      transition-timing-function: var(--ease-out);
     }
     .tech-icon-wrapper::after {
       content: '';
-      @apply absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500;
+      @apply absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300;
     }
     .tech-social-label {
-      @apply text-[10px] font-bold text-gray-600 uppercase tracking-[0.2em] group-hover:text-primary/70 transition-colors duration-500;
+      @apply text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] group-hover:text-primary/70 transition-colors duration-300;
     }
     `]
 })
@@ -86,6 +96,8 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
   private particles: any[] = [];
   private animationId: any;
   private mouse = { x: -1000, y: -1000 };
+  private boundMouseMove = this.onMouseMove.bind(this);
+  private boundResize = this.handleResize.bind(this);
 
   ngOnInit() {
     this.dataService.getPersonalInfo().subscribe(info => {
@@ -96,45 +108,56 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit() {
     this.initNeuralBackground();
-    window.addEventListener('mousemove', this.onMouseMove.bind(this));
+    window.addEventListener('mousemove', this.boundMouseMove);
   }
 
   ngOnDestroy() {
     if (this.timeoutId) clearTimeout(this.timeoutId);
     if (this.animationId) cancelAnimationFrame(this.animationId);
-    window.removeEventListener('mousemove', this.onMouseMove.bind(this));
+    window.removeEventListener('mousemove', this.boundMouseMove);
+    window.removeEventListener('resize', this.boundResize);
   }
 
   private onMouseMove(e: MouseEvent) {
-    this.mouse.x = e.clientX;
-    this.mouse.y = e.clientY;
+    const rect = this.canvasRef.nativeElement.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    this.mouse.x = (e.clientX - rect.left) * dpr;
+    this.mouse.y = (e.clientY - rect.top) * dpr;
   }
 
   private initNeuralBackground() {
     const canvas = this.canvasRef.nativeElement;
     this.ctx = canvas.getContext('2d')!;
     
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      this.createParticles();
-    };
-
-    window.addEventListener('resize', resize);
-    resize();
+    window.addEventListener('resize', this.boundResize);
+    this.handleResize();
     this.animate();
   }
 
+  private handleResize() {
+    const canvas = this.canvasRef.nativeElement;
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    // Context scale is not needed if we multiply all coordinates by DPR, 
+    // but clearing and drawing particles is easier if we scale the context.
+    // Actually, I will manage it by scaling coordinates in animate.
+    this.createParticles();
+  }
+
   private createParticles() {
-    const particleCount = Math.floor((window.innerWidth * window.innerHeight) / 10000);
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const particleCount = Math.floor((width * height) / 10000);
+    
     this.particles = [];
     for (let i = 0; i < particleCount; i++) {
       this.particles.push({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
+        x: Math.random() * width,
+        y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.4,
         vy: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 2 + 0.5,
+        size: Math.random() * 2 + 1.5,
         originalVx: 0,
         originalVy: 0
       });
@@ -144,19 +167,25 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   private animate() {
-    this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+    const dpr = window.devicePixelRatio || 1;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    const canvasWidth = width * dpr;
+    const canvasHeight = height * dpr;
+    
+    this.ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     
     this.particles.forEach((p, i) => {
-      // Mouse interaction
-      const dxm = p.x - this.mouse.x;
-      const dym = p.y - this.mouse.y;
+      // Mouse interaction (mouse.x/y are already in canvas coordinates)
+      const dxm = p.x * dpr - this.mouse.x;
+      const dym = p.y * dpr - this.mouse.y;
       const distm = Math.sqrt(dxm * dxm + dym * dym);
       
-      if (distm < 200) {
+      if (distm < 200 * dpr) {
         const angle = Math.atan2(dym, dxm);
-        const force = (200 - distm) / 200;
-        p.vx += Math.cos(angle) * force * 0.2;
-        p.vy += Math.sin(angle) * force * 0.2;
+        const force = (200 * dpr - distm) / (200 * dpr);
+        p.vx += (Math.cos(angle) * force * 0.2) / dpr;
+        p.vy += (Math.sin(angle) * force * 0.2) / dpr;
       } else {
         p.vx += (p.originalVx - p.vx) * 0.05;
         p.vy += (p.originalVy - p.vy) * 0.05;
@@ -165,31 +194,31 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
       p.x += p.vx;
       p.y += p.vy;
 
-      if (p.x < 0) p.x = window.innerWidth;
-      if (p.x > window.innerWidth) p.x = 0;
-      if (p.y < 0) p.y = window.innerHeight;
-      if (p.y > window.innerHeight) p.y = 0;
+      if (p.x < 0) p.x = width;
+      if (p.x > width) p.x = 0;
+      if (p.y < 0) p.y = height;
+      if (p.y > height) p.y = 0;
 
       // Draw particle
       this.ctx.fillStyle = '#22d3ee';
       this.ctx.beginPath();
-      this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      this.ctx.arc(p.x * dpr, p.y * dpr, p.size * dpr, 0, Math.PI * 2);
       this.ctx.fill();
 
       // Connections
       for (let j = i + 1; j < this.particles.length; j++) {
         const p2 = this.particles[j];
-        const dx = p.x - p2.x;
-        const dy = p.y - p2.y;
+        const dx = (p.x - p2.x) * dpr;
+        const dy = (p.y - p2.y) * dpr;
         const dist = Math.sqrt(dx * dx + dy * dy);
 
-        if (dist < 180) {
-          const opacity = (1 - dist / 180) * 0.25;
+        if (dist < 180 * dpr) {
+          const opacity = (1 - dist / (180 * dpr)) * 0.4;
           this.ctx.strokeStyle = `rgba(34, 211, 238, ${opacity})`;
-          this.ctx.lineWidth = 1;
+          this.ctx.lineWidth = 1 * dpr;
           this.ctx.beginPath();
-          this.ctx.moveTo(p.x, p.y);
-          this.ctx.lineTo(p2.x, p2.y);
+          this.ctx.moveTo(p.x * dpr, p.y * dpr);
+          this.ctx.lineTo(p2.x * dpr, p2.y * dpr);
           this.ctx.stroke();
         }
       }

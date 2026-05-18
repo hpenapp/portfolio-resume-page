@@ -7,19 +7,19 @@ import { DataService, PersonalInfo } from '../../services/data.service';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="summary" class="py-32 px-4 md:px-10 max-w-7xl mx-auto border-t border-white/5">
+    <section id="summary" class="py-32 px-4 md:px-10 max-w-6xl mx-auto border-t border-white/5">
       <div class="flex flex-col lg:flex-row gap-20 items-center lg:items-start" *ngIf="personalInfo">
         
         <!-- About Text -->
         <div class="lg:w-7/12" data-aos="fade-right">
           <div class="mb-12">
-            <h2 class="text-4xl md:text-6xl font-bold mb-8 tracking-tighter">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8 tracking-tighter">
               About <span class="text-primary">Me</span>
             </h2>
             
-            <h3 class="text-2xl text-primary font-bold mb-6 tracking-tight">{{ personalInfo.currentRole }}</h3>
+            <h3 class="text-xl text-primary font-bold mb-6 tracking-tight">{{ personalInfo.currentRole }}</h3>
             
-            <p class="text-xl text-gray-400 leading-relaxed mb-10 font-medium">
+            <p class="text-lg text-gray-300 leading-relaxed mb-10 font-medium">
               {{ personalInfo.summary }}
             </p>
           </div>
@@ -32,8 +32,8 @@ import { DataService, PersonalInfo } from '../../services/data.service';
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
               </div>
               <div>
-                <p class="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-1">Location</p>
-                <p class="text-white font-bold tracking-tight">{{ personalInfo.location }}</p>
+                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-1">Location</p>
+                <p class="text-white font-bold tracking-tight text-base">{{ personalInfo.location }}</p>
               </div>
             </div>
 
@@ -42,8 +42,8 @@ import { DataService, PersonalInfo } from '../../services/data.service';
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
               </div>
               <div>
-                <p class="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-1">Degree</p>
-                <p class="text-white font-bold tracking-tight">{{ personalInfo.degree }}</p>
+                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-1">Degree</p>
+                <p class="text-white font-bold tracking-tight text-base">{{ personalInfo.degree }}</p>
               </div>
             </div>
 
@@ -52,8 +52,8 @@ import { DataService, PersonalInfo } from '../../services/data.service';
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
               <div>
-                <p class="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-1">Email</p>
-                <a [href]="'mailto:' + personalInfo.email" class="text-white font-bold tracking-tight hover:text-primary transition-colors">{{ personalInfo.email }}</a>
+                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-1">Email</p>
+                <a [href]="'mailto:' + personalInfo.email" class="text-white font-bold tracking-tight text-base hover:text-primary transition-colors">{{ personalInfo.email }}</a>
               </div>
             </div>
 
@@ -62,8 +62,8 @@ import { DataService, PersonalInfo } from '../../services/data.service';
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
               </div>
               <div>
-                <p class="text-[10px] text-gray-500 font-bold uppercase tracking-[0.2em] mb-1">Phone</p>
-                <p class="text-white font-bold tracking-tight">{{ personalInfo.phone }}</p>
+                <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] mb-1">Phone</p>
+                <p class="text-white font-bold tracking-tight text-base">{{ personalInfo.phone }}</p>
               </div>
             </div>
           </div>
@@ -72,10 +72,18 @@ import { DataService, PersonalInfo } from '../../services/data.service';
 
         <!-- Decorative Card / Photo -->
         <div class="lg:w-5/12 flex justify-center w-full" data-aos="fade-left">
-          <div class="bezel-container group w-full max-w-sm">
-            <div class="bezel-inner relative overflow-hidden aspect-[4/5]">
-              <div class="absolute inset-0 bg-primary/20 mix-blend-overlay group-hover:scale-110 transition-transform duration-700 ease-out-quint"></div>
-              <img src="/assets/profile.jpeg" alt="Humberto Gerardo Peña Páez" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+          <div class="bezel-container group w-full max-w-sm cursor-pointer transition-transform duration-300 active:scale-95 active:rotate-1" 
+               style="transition-timing-function: var(--ease-out)">
+            <div class="bezel-inner relative overflow-hidden aspect-[4/5] glass-card">
+              <div class="absolute inset-0 bg-primary/20 mix-blend-overlay group-hover:scale-110 transition-transform duration-500"
+                   style="transition-timing-function: var(--ease-out)"></div>
+              <img src="/assets/profile.jpeg" alt="Humberto Gerardo Peña Páez" 
+                   class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
+                   style="transition-timing-function: var(--ease-out)">
+              
+              <!-- Premium Shine Effect -->
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
+                   style="transition-timing-function: var(--ease-in-out)"></div>
             </div>
           </div>
         </div>

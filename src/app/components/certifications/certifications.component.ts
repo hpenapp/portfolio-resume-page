@@ -9,12 +9,12 @@ import { Certification } from '../../models/certification.model';
   imports: [CommonModule],
   template: `
     <section id="certifications" class="py-32 px-4 md:px-10 border-t border-white/5 overflow-hidden">
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-6xl mx-auto">
         <div class="mb-20 text-center" data-aos="fade-up">
-          <h2 class="text-4xl md:text-6xl font-bold mb-6 tracking-tighter">
+          <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tighter">
             Credentials <span class="text-primary">& Achievements</span>
           </h2>
-          <p class="text-textSecondary text-lg max-w-2xl mx-auto leading-relaxed">Verified expertise and continuous learning in data engineering and emerging technologies.</p>
+          <p class="text-textSecondary text-base max-w-2xl mx-auto leading-relaxed">Verified expertise and continuous learning in data engineering and emerging technologies.</p>
         </div>
         
         <!-- Tabs -->
@@ -45,7 +45,7 @@ import { Certification } from '../../models/certification.model';
                      class="w-full h-full object-contain relative z-10 drop-shadow-2xl group-hover:scale-110 group-hover:rotate-3 transition-transform duration-700 ease-out-quint">
                 
                 <div *ngIf="!cert.badgeUrl" class="w-full h-full bg-white/5 rounded-full flex items-center justify-center border border-white/10 relative z-10">
-                  <svg class="w-12 h-12 text-gray-600 group-hover:text-primary transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <svg class="w-12 h-12 text-gray-500 group-hover:text-primary transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </div>
               </div>
               
@@ -53,8 +53,11 @@ import { Certification } from '../../models/certification.model';
                 <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] px-3 py-1 bg-primary/10 rounded-full border border-primary/20">{{ cert.type }}</span>
               </div>
               
-              <h3 class="text-xl font-bold text-white mb-3 leading-tight tracking-tight group-hover:text-primary transition-colors duration-500">{{ cert.name }}</h3>
-              <p class="text-gray-500 text-sm font-bold mb-8">{{ cert.issuer }} <span class="mx-2 text-white/5">•</span> {{ cert.date }}</p>
+              <h3 class="text-lg font-bold text-white mb-3 leading-tight tracking-tight group-hover:text-primary transition-colors duration-500">{{ cert.name }}</h3>
+              <div class="mb-8">
+                <p class="text-gray-300 text-sm font-bold leading-tight mb-1.5">{{ cert.issuer }}</p>
+                <p class="text-gray-500 text-xs font-medium tracking-wider">{{ cert.date }}</p>
+              </div>
               
               <a *ngIf="cert.verificationUrl && cert.verificationUrl !== '#'" [href]="cert.verificationUrl" target="_blank" 
                  class="mt-auto inline-flex items-center gap-2 px-6 py-2.5 bg-white/5 hover:bg-white/10 text-white rounded-full text-xs font-bold transition-all border border-white/10 active:scale-95">

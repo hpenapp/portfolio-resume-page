@@ -39,21 +39,33 @@ import * as AOS from 'aos';
         <app-education id="education"></app-education>
         <app-certifications id="certifications"></app-certifications>
         
-        <!-- CTA Section -->
-        <section class="py-32 px-4 text-center max-w-4xl mx-auto" data-aos="fade-up">
-          <h2 class="text-4xl md:text-6xl font-bold mb-8 text-white tracking-tighter">Looking for a Data Engineer for your team?</h2>
-          <p class="text-textSecondary text-xl md:text-2xl mb-12 max-w-2xl mx-auto leading-relaxed">Let's talk about how I can add value to your data projects or scale your analytical architecture.</p>
-          <a href="mailto:hgerardop01@gmail.com" class="inline-flex items-center px-10 py-5 bg-primary text-background font-bold text-xl rounded-full hover:bg-cyan-300 transition-all duration-500 ease-out-quint shadow-[0_0_20px_rgba(34,211,238,0.3)] hover:shadow-[0_0_40px_rgba(34,211,238,0.5)] hover:-translate-y-1 active:scale-[0.97]">
-            Contact Me
-            <div class="ml-3 w-8 h-8 rounded-full bg-black/10 flex items-center justify-center">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        <!-- Balanced Minimalist CTA Section -->
+        <section class="py-32 px-4 text-center max-w-2xl mx-auto" data-aos="fade-up">
+          <div class="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/10 mb-8 transition-all duration-300 hover:border-emerald-500/30 group/cta">
+            <div class="relative flex items-center justify-center">
+              <span class="absolute w-3 h-3 rounded-full bg-emerald-500/40 animate-ping"></span>
+              <span class="relative w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_10px_#10b981]"></span>
             </div>
+            <span class="text-[10px] font-bold text-emerald-500/80 uppercase tracking-[0.2em] group-hover/cta:text-emerald-400 transition-colors">Available for new projects</span>
+          </div>
+          
+          <h2 class="text-3xl md:text-4xl font-bold mb-10 tracking-tight text-white leading-tight">
+            I'm always open to discussing new data challenges and opportunities.
+          </h2>
+
+          <a href="mailto:hgerardop01@gmail.com" 
+             class="inline-flex items-center gap-4 px-10 py-4 bg-primary text-background font-bold rounded-full hover:bg-cyan-300 transition-all duration-300 active:scale-95 active:filter active:blur-[1px] shadow-[0_0_20px_rgba(34,211,238,0.15)] group"
+             [style.transition-timing-function]="'var(--ease-out)'">
+            <span>Get in touch</span>
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" [style.transition-timing-function]="'var(--ease-snappy)'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7-7m7-7H3"></path>
+            </svg>
           </a>
         </section>
 
         <footer class="py-12 text-center border-t border-white/5 mt-10">
           <p class="text-textSecondary text-sm tracking-wide">
-            &copy; {{ currentYear }} Humberto Gerardo Peña | Data Engineer. Crafted with Angular & Tailwind.
+            &copy; {{ currentYear }} Humberto Peña | Data Engineer. Crafted with Angular & Tailwind.
           </p>
         </footer>
       </main>

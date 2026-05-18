@@ -10,7 +10,7 @@ import { Experience } from '../../models/experience.model';
   template: `
     <section id="experience" class="py-24 px-4 md:px-10 max-w-6xl mx-auto">
       <div class="text-center mb-16" data-aos="fade-up">
-        <h2 class="text-3xl md:text-5xl font-bold mb-8">
+        <h2 class="text-2xl md:text-4xl font-bold mb-8">
           Professional <span class="text-primary">Experience</span>
         </h2>
         <a href="#resume" class="inline-flex items-center px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-background transition-all duration-300 font-bold uppercase tracking-wider text-sm rounded-sm">
@@ -30,11 +30,11 @@ import { Experience } from '../../models/experience.model';
           
           <!-- Simple Content -->
           <div class="flex flex-col md:flex-row md:items-baseline md:justify-between mb-1">
-            <h3 class="text-2xl font-bold text-white">{{ exp.role }}</h3>
+            <h3 class="text-xl font-bold text-white">{{ exp.role }}</h3>
             <span class="text-primary font-mono text-sm mt-1 md:mt-0">{{ exp.period }}</span>
           </div>
           
-          <p class="text-lg text-textSecondary font-medium">{{ exp.company }}</p>
+          <p class="text-base text-textSecondary font-medium">{{ exp.company }}</p>
           
         </div>
       </div>

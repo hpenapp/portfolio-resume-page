@@ -199,8 +199,6 @@ export class DataService {
       technologies: ['Azure Functions', 'C#', 'AI Agents', 'Conversational Intelligence'],
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
-      link: '#',
-      githubLink: '#',
       imageUrl: 'assets/projects-img/ai-agents.png'
     },
     {
@@ -211,8 +209,6 @@ export class DataService {
       technologies: ['Azure Databricks', 'PySpark', 'LLM', 'Medallion Methodology'],
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
-      link: '#',
-      githubLink: '#',
       imageUrl: 'assets/projects-img/etl-llm.png'
     },
     {
@@ -223,8 +219,6 @@ export class DataService {
       technologies: ['Generative AI', 'APIs', 'SQL', 'DevOps'],
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
-      link: '#',
-      githubLink: '#',
       imageUrl: 'assets/projects-img/ai-rating-agent.png'
     },
     {
@@ -235,8 +229,6 @@ export class DataService {
       technologies: ['Generative AI', 'Predictive Analysis', 'Python'],
       category: 'Data Engineering',
       client: 'Data & Analytics — Heineken México',
-      link: '#',
-      githubLink: '#',
       imageUrl: './assets/projects-img/promotion-recommendation.png'
     },
     {
@@ -245,10 +237,8 @@ export class DataService {
       description: 'Technical coordination of an internal Data Engineering Factory, defining ETL & Medallion Architecture standards and guiding SAP-to-cloud data ingestion pipelines.',
       longDescription: 'Appointed as Lead to coordinate the internal Data Engineering Factory at D&C Solutions. Responsibilities include defining and guaranteeing compliance with ETL and Medallion Architecture standards, overseeing the ingestion of complex datasets from SAP via Azure Blob Storage, providing architectural guidance and technical mentorship to junior developers, and acting as the primary guardian of data integrity through rigorous code reviews and resolution of complex technical roadblocks.',
       technologies: ['Technical Leadership', 'Medallion Architecture', 'SAP Integration', 'Azure Blob Storage', 'ETL Standards', 'Azure Databricks', 'PySpark'],
-      category: 'Factory',
+      category: 'Data Engineering',
       client: 'D&C Solutions S.C.',
-      link: '#',
-      githubLink: '#',
       imageUrl: 'assets/projects-img/data-engineer-factory.png'
     }
   ];

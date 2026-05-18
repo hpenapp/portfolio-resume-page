@@ -6,15 +6,15 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="tech-stack" class="py-32 px-4 md:px-10 max-w-7xl mx-auto border-t border-white/5">
+    <section id="tech-stack" class="py-32 px-4 md:px-10 max-w-[1400px] mx-auto border-t border-white/5">
       <div class="mb-20 text-center" data-aos="fade-up">
-        <h2 class="text-4xl md:text-6xl font-bold mb-6 tracking-tighter">
+        <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tighter">
           Technical <span class="text-primary">Expertise</span>
         </h2>
-        <p class="text-textSecondary text-lg max-w-2xl mx-auto leading-relaxed">Specialized in building scalable data architectures and AI-driven solutions for modern business challenges.</p>
+        <p class="text-textSecondary text-base max-w-2xl mx-auto leading-relaxed">Specialized in building scalable data architectures and AI-driven solutions for modern business challenges.</p>
       </div>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         
         <!-- Leadership & Architecture -->
         <div class="bezel-container group" data-aos="fade-up" data-aos-delay="100">
@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
             <div class="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 border border-primary/20 shadow-[0_0_20px_rgba(34,211,238,0.1)]">
               <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
             </div>
-            <h3 class="text-2xl font-bold mb-6 text-white tracking-tight">Leadership</h3>
+            <h3 class="text-xl font-bold mb-6 text-white tracking-tight">Leadership</h3>
             <ul class="space-y-4 text-gray-400">
               <li class="flex items-center text-sm font-medium hover:text-primary transition-colors cursor-default"><span class="w-1.5 h-1.5 bg-primary/40 rounded-full mr-4 group-hover:bg-primary transition-colors"></span> Technical Mentorship</li>
               <li class="flex items-center text-sm font-medium hover:text-primary transition-colors cursor-default"><span class="w-1.5 h-1.5 bg-primary/40 rounded-full mr-4 group-hover:bg-primary transition-colors"></span> Factory Coordination</li>
