@@ -8,91 +8,89 @@ import { Experience } from '../../models/experience.model';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="resume" class="py-24 px-4 md:px-10 max-w-5xl mx-auto border-t border-gray-800">
+    <section id="resume" class="py-32 px-4 md:px-10 max-w-7xl mx-auto border-t border-white/5">
       
-      <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-8" data-aos="fade-up">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-12" data-aos="fade-up">
         <div>
-          <h2 class="text-3xl md:text-5xl font-bold mb-4">
-            Technical <span class="text-primary">Experience</span>
+          <h2 class="text-4xl md:text-6xl font-bold mb-6 tracking-tighter">
+            Technical <span class="text-primary">Journey</span>
           </h2>
-          <p class="text-textSecondary font-mono text-sm tracking-widest uppercase">
-            Full professional background
+          <p class="text-textSecondary text-lg max-w-xl leading-relaxed">
+            Professional trajectory focused on engineering robust data ecosystems and scalable solutions.
           </p>
         </div>
         
-        <div class="flex flex-col sm:flex-row items-center gap-6">
+        <div class="flex flex-col sm:flex-row items-center gap-6 w-full md:w-auto">
           <!-- Language Toggle -->
-          <div class="flex bg-gray-900 p-1 rounded-sm border border-gray-800">
+          <div class="flex bg-white/5 p-1.5 rounded-full border border-white/10 backdrop-blur-md">
             <button (click)="setLanguage('en')" 
                     [class.bg-primary]="currentLanguage === 'en'"
                     [class.text-background]="currentLanguage === 'en'"
-                    class="px-4 py-1.5 text-xs font-bold transition-all duration-300 rounded-sm">EN</button>
+                    [class.shadow-lg]="currentLanguage === 'en'"
+                    class="px-6 py-2 text-xs font-bold transition-all duration-500 rounded-full active:scale-95">EN</button>
             <button (click)="setLanguage('es')" 
                     [class.bg-primary]="currentLanguage === 'es'"
                     [class.text-background]="currentLanguage === 'es'"
-                    class="px-4 py-1.5 text-xs font-bold transition-all duration-300 rounded-sm">ES</button>
+                    [class.shadow-lg]="currentLanguage === 'es'"
+                    class="px-6 py-2 text-xs font-bold transition-all duration-500 rounded-full active:scale-95">ES</button>
           </div>
 
           <!-- Download Button -->
           <a [href]="currentLanguage === 'en' ? 'assets/cv-en.pdf' : 'assets/cv-es.pdf'"
              [download]="currentLanguage === 'en' ? 'cv-en.pdf' : 'cv-es.pdf'"
-             class="px-8 py-3 bg-primary text-background font-bold rounded-sm hover:bg-cyan-300 transition-colors flex items-center justify-center shadow-[4px_4px_0px_0px_rgba(34,211,238,0.2)] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px]">
-            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+             class="group w-full sm:w-auto px-8 py-4 bg-primary text-background font-bold rounded-full hover:bg-cyan-300 transition-all duration-500 flex items-center justify-center shadow-[0_0_20px_rgba(34,211,238,0.2)] active:scale-[0.97]">
+            <svg class="w-5 h-5 mr-3 group-hover:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
             {{ currentLanguage === 'en' ? 'Download Resume' : 'Descargar CV' }}
           </a>
         </div>
       </div>
 
-      <!-- Timeline container: padding-left creates the gutter for the line and dots -->
-      <div class="relative pl-10 md:pl-14">
-        <!-- Vertical line: centered in gutter. pl-10=40px → center=20px → left-5. pl-14=56px → center=28px → md:left-7 -->
-        <div class="absolute left-5 md:left-7 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-gray-800 to-transparent"></div>
+      <!-- Timeline container -->
+      <div class="relative pl-8 md:pl-20">
+        <!-- Vertical line -->
+        <div class="absolute left-4 md:left-10 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-white/5 to-transparent"></div>
 
-        <div class="space-y-20">
+        <div class="space-y-32">
           <div *ngFor="let exp of experiences; let i = index"
-               class="relative"
+               class="relative group/item"
                data-aos="fade-up" [attr.data-aos-delay]="i * 50">
 
-            <!-- Dot: absolute relative to the ngFor item (which starts at pl-10=40px / pl-14=56px from outer).
-                 Line is at left-5=20px (mobile) and left-7=28px (md) from outer.
-                 Dot left-edge from outer = line_center - half_dot = 20-8=12px / 28-8=20px.
-                 Dot left relative to ngFor item = 12-40=-28px (-left-7) / 20-56=-36px (md:-left-9). -->
-            <div class="absolute -left-7 md:-left-9 top-[6px] w-4 h-4 bg-background border-2 border-primary rounded-full z-10 transition-colors hover:bg-primary"></div>
+            <!-- Dot -->
+            <div class="absolute -left-5 md:-left-11 top-[10px] w-2.5 h-2.5 bg-background border-2 border-primary rounded-full z-10 transition-all duration-500 group-hover/item:scale-150 group-hover/item:bg-primary shadow-[0_0_10px_rgba(34,211,238,0.5)]"></div>
 
             <div class="group">
               <!-- Content -->
               <div class="flex-grow">
-                <div class="flex flex-col mb-1">
-                  <h3 class="text-3xl font-bold text-white tracking-tight mb-2">
-                    {{ currentLanguage === 'es' && exp.translations?.es ? exp.translations?.es?.role : exp.role }}
-                  </h3>
-                  <div class="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                    <p class="text-xl text-gray-300 font-bold flex flex-wrap items-center">
-                      {{ exp.company }}
-                      <span class="mx-2 text-gray-600">|</span>
-                      <span class="text-[rgba(255,255,255,0.7)] text-base font-medium capitalize">{{ exp.location | lowercase }}</span>
-                    </p>
-                    <span class="text-primary font-mono text-sm font-bold bg-primary/10 px-3 py-1 rounded-sm mt-2 md:mt-0 self-start md:self-auto">{{ exp.period }}</span>
+                <div class="flex flex-col mb-8">
+                  <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-4">
+                    <h3 class="text-3xl md:text-5xl font-bold text-white tracking-tighter group-hover:text-primary transition-colors duration-500">
+                      {{ currentLanguage === 'es' && exp.translations?.es ? exp.translations?.es?.role : exp.role }}
+                    </h3>
+                    <span class="text-primary font-mono text-sm font-bold bg-primary/10 px-4 py-1.5 rounded-full border border-primary/20 backdrop-blur-md self-start md:mb-2">{{ exp.period }}</span>
                   </div>
+                  
+                  <p class="text-xl md:text-2xl text-gray-400 font-bold flex flex-wrap items-center tracking-tight">
+                    {{ exp.company }}
+                    <span class="mx-3 text-white/10 hidden md:inline">/</span>
+                    <span class="text-gray-500 text-lg font-medium capitalize">{{ exp.location | lowercase }}</span>
+                  </p>
                 </div>
 
-
-
-                <p class="text-textSecondary mb-6 leading-relaxed max-w-4xl italic">
+                <p class="text-gray-400 mb-10 text-lg leading-relaxed max-w-4xl font-medium border-l-2 border-white/5 pl-6 italic">
                   {{ currentLanguage === 'es' && exp.translations?.es ? exp.translations?.es?.description : exp.description }}
                 </p>
 
-                <div class="mb-8 space-y-4" *ngIf="getAchievements(exp)?.length">
-                  <div *ngFor="let achievement of getAchievements(exp)" class="flex items-start text-gray-300 text-base leading-relaxed">
-                    <span class="text-primary mr-3 mt-1.5 flex-shrink-0">
-                      <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                <div class="mb-12 space-y-6" *ngIf="getAchievements(exp)?.length">
+                  <div *ngFor="let achievement of getAchievements(exp)" class="flex items-start text-gray-300 text-lg leading-relaxed group/ach">
+                    <span class="text-primary mr-5 mt-2.5 flex-shrink-0 group-hover/ach:translate-x-1 transition-transform">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                     </span>
-                    <span [innerHTML]="achievement"></span>
+                    <span [innerHTML]="achievement" class="font-medium"></span>
                   </div>
                 </div>
 
-                <div class="flex flex-wrap gap-2" *ngIf="exp.skills?.length">
-                  <span *ngFor="let skill of exp.skills" class="text-xs font-semibold capitalize bg-primary/10 text-primary px-3 py-1 rounded hover:bg-primary/20 transition-colors cursor-default">
+                <div class="flex flex-wrap gap-2.5" *ngIf="exp.skills?.length">
+                  <span *ngFor="let skill of exp.skills" class="text-[11px] font-bold uppercase tracking-wider bg-white/5 text-gray-500 px-4 py-2 rounded-lg border border-white/5 hover:border-primary/30 hover:text-gray-300 transition-all cursor-default">
                     {{ skill | lowercase }}
                   </span>
                 </div>

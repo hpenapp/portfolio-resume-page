@@ -1,0 +1,14 @@
+{
+  "skills": {
+    "disabled": [
+      "find-skills",
+      "impeccable",
+      "imagegen-frontend-mobile",
+      "skill-creator",
+      "stitch-design-taste",
+      "industrial-brutalist-ui",
+      "imagegen-frontend-web",
+      "image-to-code"
+    ]
+  }
+}
