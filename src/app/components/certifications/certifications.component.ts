@@ -8,47 +8,63 @@ import { Certification } from '../../models/certification.model';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <section id="certifications" class="py-20 px-4 md:px-10 bg-cardBg/30 border-t border-gray-800">
+    <section id="certifications" class="py-32 px-4 md:px-10 border-t border-white/5 overflow-hidden">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center" data-aos="fade-up">
-          Credentials <span class="text-primary">& Achievements</span>
-        </h2>
+        <div class="mb-20 text-center" data-aos="fade-up">
+          <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tighter">
+            Credentials <span class="text-primary">& Achievements</span>
+          </h2>
+          <p class="text-textSecondary text-base max-w-2xl mx-auto leading-relaxed">Verified expertise and continuous learning in data engineering and emerging technologies.</p>
+        </div>
         
         <!-- Tabs -->
-        <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up">
+        <div class="flex flex-wrap justify-center gap-3 mb-16" data-aos="fade-up">
           <button *ngFor="let tab of tabs" 
                   (click)="setTab(tab)"
-                  [class.bg-primary]="activeTab === tab"
-                  [class.text-background]="activeTab === tab"
-                  [class.bg-transparent]="activeTab !== tab"
-                  [class.text-gray-300]="activeTab !== tab"
-                  class="px-6 py-2 rounded-full border border-primary transition-all duration-300 hover:bg-primary hover:text-background font-medium cursor-pointer">
+                  [ngClass]="{
+                    'bg-primary text-background border-primary': activeTab === tab,
+                    'bg-white/5 text-gray-400 border-white/10': activeTab !== tab
+                  }"
+                  class="px-8 py-2.5 rounded-full border transition-all duration-500 ease-out-quint font-bold text-sm hover:scale-105 active:scale-95 cursor-pointer backdrop-blur-md">
             {{ tab }}
           </button>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div *ngFor="let cert of filteredCertifications; let i = index" 
-               class="glass-card p-6 flex flex-col items-center text-center group w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)] max-w-sm animate-fade-in-up"
-               [ngClass]="{'border-primary shadow-[0_0_15px_rgba(34,211,238,0.2)]': cert.highlight}"
-               data-aos="fade-up" [attr.data-aos-delay]="i * 100">
+               class="bezel-container group animate-fade-in-up"
+               [style.animation-delay.ms]="i * 50"
+               data-aos="fade-up">
             
-            <div class="w-32 h-32 mb-6 relative">
-              <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:bg-primary/40 transition-colors" *ngIf="cert.highlight"></div>
-              <img *ngIf="cert.badgeUrl" [src]="cert.badgeUrl" [alt]="cert.name" class="w-full h-full object-contain relative z-10 drop-shadow-xl group-hover:scale-105 transition-transform duration-300">
-              <div *ngIf="!cert.badgeUrl" class="w-full h-full bg-gray-800 rounded-full flex items-center justify-center border-4 border-gray-700">
-                <svg class="w-12 h-12 text-textSecondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <div class="bezel-inner glass-card p-8 flex flex-col items-center text-center h-full">
+              <div class="w-32 h-32 mb-8 relative">
+                <div class="absolute inset-0 bg-primary/20 rounded-full blur-2xl group-hover:bg-primary/40 transition-all duration-700" *ngIf="cert.highlight"></div>
+                <div class="absolute -inset-2 bg-gradient-to-br from-primary/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                
+                <img *ngIf="cert.badgeUrl" [src]="cert.badgeUrl" [alt]="cert.name" 
+                     class="w-full h-full object-contain relative z-10 drop-shadow-2xl group-hover:scale-110 group-hover:rotate-3 transition-transform duration-700 ease-out-quint">
+                
+                <div *ngIf="!cert.badgeUrl" class="w-full h-full bg-white/5 rounded-full flex items-center justify-center border border-white/10 relative z-10">
+                  <svg class="w-12 h-12 text-gray-500 group-hover:text-primary transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
               </div>
+              
+              <div class="mb-4">
+                <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] px-3 py-1 bg-primary/10 rounded-full border border-primary/20">{{ cert.type }}</span>
+              </div>
+              
+              <h3 class="text-lg font-bold text-white mb-3 leading-tight tracking-tight group-hover:text-primary transition-colors duration-500">{{ cert.name }}</h3>
+              <div class="mb-8">
+                <p class="text-gray-300 text-sm font-bold leading-tight mb-1.5">{{ cert.issuer }}</p>
+                <p class="text-gray-500 text-xs font-medium tracking-wider">{{ cert.date }}</p>
+              </div>
+              
+              <a *ngIf="cert.verificationUrl && cert.verificationUrl !== '#'" [href]="cert.verificationUrl" target="_blank" 
+                 class="mt-auto inline-flex items-center gap-2 px-6 py-2.5 bg-white/5 hover:bg-white/10 text-white rounded-full text-xs font-bold transition-all border border-white/10 active:scale-95">
+                <span>Verify</span>
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
             </div>
-            
-            <span class="text-xs font-bold text-primary mb-2 uppercase tracking-widest">{{ cert.type }}</span>
-            <h3 class="text-lg font-bold text-white mb-2 leading-snug">{{ cert.name }}</h3>
-            <p class="text-textSecondary font-medium mb-4">{{ cert.issuer }} • {{ cert.date }}</p>
-            
-            <a *ngIf="cert.verificationUrl && cert.verificationUrl !== '#'" [href]="cert.verificationUrl" target="_blank" class="mt-auto px-6 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-full text-sm font-semibold transition-colors flex items-center">
-              Verify
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-            </a>
           </div>
         </div>
       </div>
